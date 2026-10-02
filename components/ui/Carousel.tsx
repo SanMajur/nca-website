@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Children, useCallback, useEffect, useRef, useState } from "react";
-import ChevronDown from "@/components/ui/ChevronDown";
+import { Children, useCallback, useEffect, useRef, useState } from 'react';
+import ChevronDown from '@/components/ui/ChevronDown';
 
 type Props = {
   label: string;
@@ -27,12 +27,12 @@ export default function Carousel({ label, action, children }: Props) {
     const el = track.current;
     if (!el) return;
     const frame = requestAnimationFrame(update);
-    el.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
     return () => {
       cancelAnimationFrame(frame);
-      el.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      el.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
     };
   }, [update]);
 
@@ -46,7 +46,7 @@ export default function Carousel({ label, action, children }: Props) {
   };
 
   const arrow =
-    "grid h-10 w-10 place-items-center rounded-full border border-slate-300 text-brand-800 transition hover:bg-brand-50 disabled:pointer-events-none disabled:opacity-40";
+    'grid h-10 w-10 place-items-center rounded-full border border-slate-300 text-brand-800 transition hover:bg-brand-50 disabled:pointer-events-none disabled:opacity-40';
 
   return (
     <div role="region" aria-roledescription="carousel" aria-label={label}>

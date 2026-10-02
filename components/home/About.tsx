@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const facts = [
-  { value: "2012", label: "Established under the National Communication Act" },
-  { value: "10 + 3", label: "States and administrative areas covered" },
-  { value: "2025–2029", label: "Current strategic plan period" },
+  { value: '2012', label: 'Established under the National Communication Act' },
+  { value: '10 + 3', label: 'States and administrative areas covered' },
+  { value: '2025–2029', label: 'Current strategic plan period' },
 ];
 
 export default function About() {
@@ -48,7 +48,7 @@ export default function About() {
           {facts.map((f, i) => (
             <div
               key={f.label}
-              className={`bg-brand-50 rounded-lg p-5 ${i === facts.length - 1 ? "col-span-2" : ""}`}
+              className={`bg-brand-50 rounded-lg p-5 ${i === facts.length - 1 ? 'col-span-2' : ''}`}
             >
               <dt className="text-brand-800 text-2xl font-bold">{f.value}</dt>
               <dd className="mt-1 text-sm text-slate-600">{f.label}</dd>

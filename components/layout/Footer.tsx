@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaEnvelope, FaPhone } from "react-icons/fa6";
-import { nav, site } from "@/lib/site";
-import NavLink from "./NavLink";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaEnvelope, FaPhone } from 'react-icons/fa6';
+import { nav, site } from '@/lib/site';
+import NavLink from './NavLink';
 
 export default function Footer() {
   return (
@@ -42,7 +42,7 @@ export default function Footer() {
                   className="text-sky-logo h-4 w-4 shrink-0"
                 />
                 <a
-                  href={`tel:${phone.replace(/\s+/g, "")}`}
+                  href={`tel:${phone.replace(/\s+/g, '')}`}
                   className="hover:underline"
                 >
                   {phone}

@@ -1,5 +1,5 @@
 export default function ChevronDown({
-  className = "",
+  className = '',
 }: {
   className?: string;
 }) {

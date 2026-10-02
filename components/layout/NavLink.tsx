@@ -1,5 +1,5 @@
-import Link from "next/link";
-import type { NavItem } from "@/lib/site";
+import Link from 'next/link';
+import type { NavItem } from '@/lib/site';
 
 type Props = { item: NavItem; className?: string; onClick?: () => void };
 

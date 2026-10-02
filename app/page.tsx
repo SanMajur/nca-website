@@ -1,11 +1,11 @@
-import Link from "next/link";
-import Button from "@/components/ui/Button";
-import Section from "@/components/ui/Section";
-import { services, site } from "@/lib/site";
-import { latestNews, keyDocuments } from "@/lib/content";
-import About from "@/components/home/About";
-import NewsCard from "@/components/news/NewsCard";
-import Carousel from "@/components/ui/Carousel";
+import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import Section from '@/components/ui/Section';
+import { services, site } from '@/lib/site';
+import { latestNews, keyDocuments } from '@/lib/content';
+import About from '@/components/home/About';
+import NewsCard from '@/components/news/NewsCard';
+import Carousel from '@/components/ui/Carousel';
 
 export default function Home() {
   return (

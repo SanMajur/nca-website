@@ -1,3 +1,12 @@
+import type { IconType } from "react-icons";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
+
 export const site = {
   name: "National Communication Authority",
   short: "NCA",
@@ -5,18 +14,32 @@ export const site = {
   tagline:
     "A digitally empowered economy for a prosperous, secure, just and inclusive society.",
   url: "https://www.nca.gov.ss",
-  eservices: "https://accounts.eservices.gov.ss/login",
+  eservices: "https://nca.eservices.gov.ss/dashboard",
   email: "info@nca.gov.ss",
+  phones: ["+211 920 832 518", "+211 925 258 885"],
   socials: [
-    { label: "Facebook", href: "https://www.facebook.com/ncasouthsudan" },
-    { label: "X", href: "https://x.com/ncs_ssd" },
-    { label: "YouTube", href: "https://www.youtube.com/@NCASouthSudan" },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/ncasouthsudan",
+      icon: FaFacebookF,
+    },
+    { label: "X", href: "https://x.com/nca_ssd", icon: FaXTwitter },
+    {
+      label: "YouTube",
+      href: "https://www.youtube.com/@NCASouthSudan",
+      icon: FaYoutube,
+    },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/company/national-communication-authority/",
+      icon: FaLinkedinIn,
     },
-    { label: "Instagram", href: "https://www.instagram.com/nca_southsudan/" },
-  ],
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/nca_southsudan",
+      icon: FaInstagram,
+    },
+  ] satisfies { label: string; href: string; icon: IconType }[],
 };
 
 export type NavItem = {

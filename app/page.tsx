@@ -3,6 +3,9 @@ import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 import { services, site } from "@/lib/site";
 import { latestNews, keyDocuments } from "@/lib/content";
+import About from "@/components/home/About";
+import NewsCard from "@/components/news/NewsCard";
+import Carousel from "@/components/ui/Carousel";
 
 export default function Home() {
   return (
@@ -30,7 +33,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <About />
       {/* Services */}
       <Section
         title="Our services"
@@ -55,37 +58,23 @@ export default function Home() {
       </Section>
 
       {/* News */}
+      {/* News */}
       <Section title="Latest news">
-        <ul className="divide-y divide-slate-200 border-y border-slate-200">
-          {latestNews.map((n) => (
-            <li key={n.href}>
-              <Link
-                href={n.href}
-                className="flex flex-col gap-1 py-5 hover:bg-slate-50 sm:flex-row sm:items-baseline sm:gap-6"
-              >
-                <time
-                  dateTime={n.date}
-                  className="w-28 shrink-0 text-sm text-slate-500"
-                >
-                  {new Date(n.date).toLocaleDateString("en-GB", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  })}
-                </time>
-                <span className="text-brand-900 font-medium">{n.title}</span>
-              </Link>
-            </li>
+        <Carousel
+          label="Latest news"
+          action={
+            <Link
+              href="/media/news"
+              className="text-brand-700 text-sm font-medium hover:underline"
+            >
+              View all news →
+            </Link>
+          }
+        >
+          {latestNews.map((item) => (
+            <NewsCard key={item.slug} item={item} />
           ))}
-        </ul>
-        <p className="mt-4">
-          <Link
-            href="/media/news"
-            className="text-brand-700 text-sm font-medium"
-          >
-            View all news →
-          </Link>
-        </p>
+        </Carousel>
       </Section>
 
       {/* Documents */}

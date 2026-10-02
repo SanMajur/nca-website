@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import { nav, site } from "@/lib/site";
-import ChevronDown from "@/components/ui/ChevronDown";
-import MobileNav from "./MobileNav";
-import NavLink from "./NavLink";
+import Image from 'next/image';
+import Link from 'next/link';
+import { nav, site } from '@/lib/site';
+import ChevronDown from '@/components/ui/ChevronDown';
+import MobileNav from './MobileNav';
+import NavLink from './NavLink';
 
 export default function Header() {
   return (

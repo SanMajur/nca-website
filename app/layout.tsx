@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { site } from "@/lib/site";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import NextTopLoader from "nextjs-toploader";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { site } from '@/lib/site';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     template: `%s | ${site.short}`,
   },
   description:
-    "The official regulator of telecommunications, broadcasting and postal services in South Sudan.",
+    'The official regulator of telecommunications, broadcasting and postal services in South Sudan.',
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"

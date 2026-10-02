@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import type { NavItem } from "@/lib/site";
-import ChevronDown from "@/components/ui/ChevronDown";
-import NavLink from "./NavLink";
-import { MdOutlineClose } from "react-icons/md";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { useEffect, useState } from 'react';
+import type { NavItem } from '@/lib/site';
+import ChevronDown from '@/components/ui/ChevronDown';
+import NavLink from './NavLink';
+import { MdOutlineClose } from 'react-icons/md';
+import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
 export default function MobileNav({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false);
@@ -14,13 +14,13 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         setOpen(false);
         setExpanded(null);
       }
     };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
   }, [open]);
 
   const closeAll = () => {
@@ -65,7 +65,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
               }
 
               const isOpen = expanded === item.label;
-              const panelId = `mobile-sub-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+              const panelId = `mobile-sub-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
               const hasOverview = item.children.some(
                 (c) => c.href === item.href,
               );
@@ -81,7 +81,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
                   >
                     {item.label}
                     <ChevronDown
-                      className={`h-5 w-5 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      className={`h-5 w-5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
 

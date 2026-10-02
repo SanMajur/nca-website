@@ -1,13 +1,14 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   /* Brand: South Sudan flag blue as the single primary */
-  --color-brand-50: #eef4ff;
-  --color-brand-100: #dbe7ff;
-  --color-brand-600: #1a58c9;
-  --color-brand-700: #0f47af;
-  --color-brand-800: #0c3a8f;
-  --color-brand-900: #092b6b;
+  --color-sky-logo: #53b2e8;
+  --color-brand-50: #eef7fd;
+  --color-brand-100: #d9edfa;
+  --color-brand-600: #1171b3;
+  --color-brand-700: #0b5a94;
+  --color-brand-800: #094a7a;
+  --color-brand-900: #073a61;
 
   /* Flag accents, used sparingly */
   --color-flag-green: #078930;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import MobileNav from "./MobileNav";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -15,9 +16,13 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-3">
           {/* Replace with the official logo: put it in /public/logo.png and use next/image */}
-          <span className="bg-brand-700 grid h-9 w-9 place-items-center rounded text-sm font-bold text-white">
-            NCA
-          </span>
+          <Image
+            src="/logo.png"
+            alt="NCA Logo"
+            width={44}
+            height={44}
+            className="h-11 w-11"
+          />
           <span className="hidden leading-tight sm:block">
             <span className="text-brand-900 block text-sm font-semibold">
               {site.name}

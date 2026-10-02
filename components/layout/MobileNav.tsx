@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import type { NavItem } from '@/lib/site';
-import ChevronDown from '@/components/ui/ChevronDown';
-import NavLink from './NavLink';
-import { MdOutlineClose } from 'react-icons/md';
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
+import { useEffect, useState } from "react";
+import type { NavItem } from "@/lib/site";
+import ChevronDown from "@/components/ui/ChevronDown";
+import NavLink from "./NavLink";
+import { MdOutlineClose } from "react-icons/md";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 
 export default function MobileNav({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false);
@@ -14,13 +14,13 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setOpen(false);
         setExpanded(null);
       }
     };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
   const closeAll = () => {
@@ -48,7 +48,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="absolute inset-x-0 top-20 max-h-[calc(100dvh-5rem)] overflow-y-auto border-b border-slate-200 bg-white px-4 py-2 shadow-lg"
+          className="animate-fade-in absolute inset-x-0 top-20 max-h-[calc(100dvh-5rem)] overflow-y-auto border-b border-slate-200 bg-white px-4 py-2 shadow-lg"
         >
           <ul className="divide-y divide-slate-100">
             {items.map((item) => {
@@ -65,7 +65,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
               }
 
               const isOpen = expanded === item.label;
-              const panelId = `mobile-sub-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
+              const panelId = `mobile-sub-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
               const hasOverview = item.children.some(
                 (c) => c.href === item.href,
               );
@@ -81,14 +81,14 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
                   >
                     {item.label}
                     <ChevronDown
-                      className={`h-5 w-5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                      className={`h-5 w-5 transition-transform ${isOpen ? "rotate-180" : ""}`}
                     />
                   </button>
 
                   {isOpen && (
                     <ul
                       id={panelId}
-                      className="border-brand-100 mb-3 ml-2 space-y-1 border-l-2 pl-4"
+                      className="animate-fade-in border-brand-100 mb-3 ml-2 space-y-1 border-l-2 pl-4"
                     >
                       {!hasOverview && (
                         <li>

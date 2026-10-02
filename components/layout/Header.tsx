@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { nav, site } from '@/lib/site';
-import ChevronDown from '@/components/ui/ChevronDown';
-import MobileNav from './MobileNav';
-import NavLink from './NavLink';
+import Image from "next/image";
+import Link from "next/link";
+import { nav, site } from "@/lib/site";
+import ChevronDown from "@/components/ui/ChevronDown";
+import MobileNav from "./MobileNav";
+import NavLink from "./NavLink";
 
 export default function Header() {
   return (
@@ -48,7 +48,7 @@ export default function Header() {
                 </Link>
 
                 {item.children && (
-                  <ul className="invisible absolute top-full left-0 min-w-60 rounded-md border border-slate-200 bg-white p-2 shadow-lg group-focus-within:visible group-hover:visible">
+                  <ul className="invisible absolute top-full left-0 min-w-60 translate-y-1 rounded-md border border-slate-200 bg-white p-2 opacity-0 shadow-lg transition-[opacity,translate,visibility] duration-150 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                     {item.children.map((child) => (
                       <li key={child.label}>
                         <NavLink

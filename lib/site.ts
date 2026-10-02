@@ -5,17 +5,17 @@ export const site = {
   tagline:
     "A digitally empowered economy for a prosperous, secure, just and inclusive society.",
   url: "https://www.nca.gov.ss",
-  eservices: "https://eservices.nca.gov.ss/dashboard",
+  eservices: "https://accounts.eservices.gov.ss/login",
   email: "info@nca.gov.ss",
   socials: [
-    { label: "Facebook", url: "https://www.facebook.com/ncasouthsudan" },
-    { label: "X", url: "https://x.com/ncs_ssd" },
-    { label: "YouTube", url: "https://www.youtube.com/@NCASouthSudan" },
+    { label: "Facebook", href: "https://www.facebook.com/ncasouthsudan" },
+    { label: "X", href: "https://x.com/ncs_ssd" },
+    { label: "YouTube", href: "https://www.youtube.com/@NCASouthSudan" },
     {
       label: "LinkedIn",
-      url: "https://www.linkedin.com/company/national-communication-authority/",
+      href: "https://www.linkedin.com/company/national-communication-authority/",
     },
-    { label: "Instagram", url: "https://www.instagram.com/nca_southsudan/" },
+    { label: "Instagram", href: "https://www.instagram.com/nca_southsudan/" },
   ],
 };
 

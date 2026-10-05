@@ -31,7 +31,7 @@ export default function NewsCard({ item }: { item: NewsItem }) {
             alt=""
             width={72}
             height={72}
-            className="absolute inset-0 m-auto opacity-50"
+            className="absolute inset-0 m-auto size-[72px] object-contain opacity-50"
           />
         )}
         <span className="text-brand-800 absolute top-3 left-3 rounded bg-white/95 px-2 py-1 text-xs font-semibold">

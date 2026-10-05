@@ -7,11 +7,11 @@ export default function NotFound() {
         Error 404
       </p>
       <h1 className="text-brand-900 mt-2 text-3xl font-bold">
-        We couldn't find that page
+        We couldn&apos;t find the page you&apos;re looking for.
       </h1>
       <p className="mt-3 text-slate-600">
         The page may have moved while we redesigned the site. Try the home page
-        or contact us and we'll help you find it.
+        or contact us and we&apos;ll help you find it.
       </p>
       <div className="mt-8 flex justify-center gap-3">
         <Button href="/">Back to home</Button>

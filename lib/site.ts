@@ -88,7 +88,7 @@ export const services: NavItem[] = [
 export const nav: NavItem[] = [
   {
     label: 'About Us',
-    href: '/about-us',
+    href: '#',
     children: [
       { label: 'Who we are', href: '/about-us' },
       { label: 'Mandate', href: '/about-us/mandate' },
@@ -97,10 +97,10 @@ export const nav: NavItem[] = [
       { label: 'Directorates', href: '/about-us/directorates' },
     ],
   },
-  { label: 'Services', href: '/services', children: services },
+  { label: 'Services', href: '#', children: services },
   {
     label: 'Regulations',
-    href: '/regulations',
+    href: '#',
     children: [
       { label: 'Policies & Regulations', href: '/regulations' },
       { label: 'Numbering Regulation', href: '/regulations/numbering' },
@@ -110,7 +110,7 @@ export const nav: NavItem[] = [
   },
   {
     label: 'Consumers',
-    href: '/consumers',
+    href: '#',
     children: [
       { label: 'Consumer Rights', href: '/consumers' },
       { label: 'Types of Complaints', href: '/consumers/complaints' },
@@ -119,7 +119,7 @@ export const nav: NavItem[] = [
   },
   {
     label: 'Media Centre',
-    href: '/media',
+    href: '#',
     children: [
       { label: 'News', href: '/media/news' },
       { label: 'Events', href: '/media/events' },

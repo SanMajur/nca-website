@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { nav, site } from '@/lib/site';
-import ChevronDown from '@/components/ui/ChevronDown';
-import MobileNav from './MobileNav';
-import NavLink from './NavLink';
+import DesktopNav from './desktopNav/DesktopNav';
+import MobileNav from './mobileNav/MobileNav';
 
 export default function Header() {
   return (
@@ -33,36 +32,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {nav.map((item) => (
-              <li key={item.label} className="group relative">
-                <Link
-                  href={item.href}
-                  className="hover:text-brand-700 flex items-center gap-1 rounded px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-                >
-                  {item.label}
-                  {item.children && (
-                    <ChevronDown className="h-4 w-4 transition-transform group-focus-within:rotate-180 group-hover:rotate-180" />
-                  )}
-                </Link>
-
-                {item.children && (
-                  <ul className="invisible absolute top-full left-0 min-w-60 translate-y-1 rounded-md border border-slate-200 bg-white p-2 opacity-0 shadow-lg transition-[opacity,translate,visibility] duration-150 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    {item.children.map((child) => (
-                      <li key={child.label}>
-                        <NavLink
-                          item={child}
-                          className="hover:bg-brand-50 block rounded px-3 py-2 text-sm"
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <DesktopNav items={nav} />
 
         <div className="flex items-center gap-2">
           <a

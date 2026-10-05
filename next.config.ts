@@ -10,5 +10,23 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: '/overview-of-nca', destination: '/about-us', permanent: true },
+      { source: '/about-us', destination: '/about-us', permanent: true },
+      { source: '/vision-mission', destination: '/about-us', permanent: true },
+      { source: '/core-objectives', destination: '/about-us', permanent: true },
+      {
+        source: '/functions-powers',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/organization-structure',
+        destination: '/about-us',
+        permanent: true,
+      },
+    ];
+  },
 };
 export default nextConfig;

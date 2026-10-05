@@ -36,8 +36,8 @@ export default function PageShell({
 
       <div className="mx-auto max-w-7xl px-4 py-12">
         {sideItems ? (
-          <div className="grid gap-8 lg:grid-cols-[15rem_1fr] lg:gap-12">
-            <aside>
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-12">
+            <aside className="min-w-0">
               <SideNav title={sideTitle} items={sideItems} />
             </aside>
             <div className="min-w-0">{children}</div>

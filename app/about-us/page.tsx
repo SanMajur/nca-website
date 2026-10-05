@@ -112,7 +112,7 @@ export default function AboutPage() {
       </div>
 
       <div id="vision-mission" className="scroll-mt-28">
-        <Section title="Vision and mission">
+        <Section title="Vision and mission" inset>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="bg-brand-800 rounded-lg p-6 text-white">
               <h3 className="text-flag-yellow text-sm font-semibold tracking-wide uppercase">
@@ -149,6 +149,7 @@ export default function AboutPage() {
 
       <Section
         title="Strategic goals 2025–2029"
+        inset
         intro="Our plan sets out how the NCA will become a Generation 5 regulator: one that drives digital change through joined-up policy."
       >
         <ol className="grid gap-4 sm:grid-cols-2">
@@ -176,7 +177,7 @@ export default function AboutPage() {
       </Section>
 
       <div id="core-objectives" className="scroll-mt-28">
-        <Section title="Core objectives">
+        <Section title="Core objectives" inset>
           <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {objectives.map((o) => (
               <li
@@ -192,7 +193,7 @@ export default function AboutPage() {
       </div>
 
       <div id="functions-powers" className="scroll-mt-28">
-        <Section title="Functions and powers">
+        <Section title="Functions and powers" inset>
           <ul className="marker:text-brand-600 max-w-3xl list-disc space-y-2 pl-5 text-slate-600">
             {aims.map((a) => (
               <li key={a}>{a}</li>
@@ -217,6 +218,7 @@ export default function AboutPage() {
         <Section
           title="How we are organised"
           intro="A Board of Directors sets policy and oversees the Authority. The Director General, appointed by the President, runs day-to-day operations through eight directorates."
+          inset
         >
           <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {directorates.map((d) => (

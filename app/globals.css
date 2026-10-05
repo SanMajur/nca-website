@@ -64,3 +64,20 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Thin branded scrollbar, always visible on touch devices too */
+.scrollbar-brand {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-600) var(--color-brand-100);
+}
+.scrollbar-brand::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-brand::-webkit-scrollbar-track {
+  background: var(--color-brand-100);
+  border-radius: 9999px;
+}
+.scrollbar-brand::-webkit-scrollbar-thumb {
+  background: var(--color-brand-600);
+  border-radius: 9999px;
+}

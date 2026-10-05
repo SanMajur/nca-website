@@ -40,7 +40,7 @@ export default function About() {
               citizen.
             </p>
             <Link
-              href="/about"
+              href="/about-us"
               className="text-brand-700 mt-6 inline-block text-sm font-semibold hover:underline"
             >
               Learn more about us →

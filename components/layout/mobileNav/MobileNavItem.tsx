@@ -29,7 +29,12 @@ export default function MobileNavItem({
   }
 
   const panelId = `mobile-sub-${slugify(item.label)}`;
-  const hasOverview = item.children.some((c) => c.href === item.href);
+
+  // An overview link is only useful when the parent has a real page that
+  // none of its children already link to ('#' parents have no page)
+  const isPlaceholder = !item.href || item.href === '#';
+  const showOverview =
+    !isPlaceholder && !item.children.some((c) => c.href === item.href);
 
   return (
     <li>
@@ -51,7 +56,7 @@ export default function MobileNavItem({
           id={panelId}
           className="animate-fade-in border-brand-100 mb-3 ml-2 space-y-1 border-l-2 pl-4"
         >
-          {!hasOverview && (
+          {showOverview && (
             <li>
               <NavLink
                 item={{ label: `${item.label} overview`, href: item.href }}

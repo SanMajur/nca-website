@@ -1,6 +1,5 @@
 import Section from '@/components/ui/Section';
 import { keyDocuments } from '@/lib/content';
-import DocumentLink from './DocumentLink';
 
 export default function KeyDocumentsSection() {
   return (

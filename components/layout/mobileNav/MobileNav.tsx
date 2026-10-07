@@ -24,6 +24,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
         type="button"
         aria-expanded={open}
         aria-controls="mobile-menu"
+        aria-label={open ? 'Close menu' : 'Open menu'}
         onClick={() => (open ? closeAll() : setOpen(true))}
         className="rounded border border-slate-300 px-3 py-2 text-sm font-medium"
       >

@@ -28,37 +28,37 @@ const nextConfig: NextConfig = {
       { source: '/mandate', destination: '/about-us/mandate', permanent: true },
       {
         source: '/board-of-directors',
-        destination: '/about-us/board',
+        destination: '/about-us/board-of-directors',
         permanent: true,
       },
       {
         source: '/advisory-council',
-        destination: '/about-us/advisors',
+        destination: '/about-us/advisory-council',
         permanent: true,
       },
       {
         source: '/board-of-directors/:slug',
-        destination: '/about-us/board',
+        destination: '/about-us/board-of-directors',
         permanent: true,
       },
       {
         source: '/advisory-council/:slug',
-        destination: '/about-us/advisors',
+        destination: '/about-us/advisory-council',
         permanent: true,
       },
       {
         source: '/leadership',
-        destination: '/about-us/executive',
+        destination: '/about-us/executive-team',
         permanent: true,
       },
       {
         source: '/leadership/:slug',
-        destination: '/about-us/executive',
+        destination: '/about-us/executive-team',
         permanent: true,
       },
       {
         source: '/executive-body',
-        destination: '/about-us/executive',
+        destination: '/about-us/executive-team',
         permanent: true,
       },
       {

@@ -3,7 +3,7 @@ import PageShell from '@/components/layout/PageShell';
 import PersonCard from '@/components/ui/PersonCard';
 import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
-import { advisors, board } from '@/lib/data/people';
+import { advisors } from '@/lib/data/people';
 
 export const metadata: Metadata = {
   title: 'Advisory Council',
@@ -22,7 +22,7 @@ export default function AdvisorsPage() {
         { label: 'About', href: '/about-us' },
         { label: 'Advisory Council' },
       ]}
-      sideTitle="About the NCA"
+      sideTitle="About the NCA Advisory Council"
       sideItems={aboutPages}
     >
       <Section title="Advisory Council members" inset>

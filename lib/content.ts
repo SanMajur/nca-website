@@ -24,6 +24,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-09-25',
     author: 'NCA Communications',
     category: 'News',
+    featured: false,
   },
   {
     slug: 'eng-gieth-kon-mathiang-assumes-office',
@@ -34,7 +35,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-09-24',
     author: 'NCA Communications',
     category: 'News',
-    featured: true,
+    featured: false,
   },
   {
     slug: '72nd-afralti-governing-council',
@@ -46,6 +47,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-09-07',
     author: 'NCA Communications',
     category: 'Policy and Regulation',
+    featured: false,
   },
   {
     slug: 'uoj-students-visit-to-nca',
@@ -55,6 +57,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-09-01', // verify
     author: 'NCA Communications',
     category: 'News',
+    featured: false,
   },
   {
     slug: 'nca-strengthens-national-cyber-resilience',
@@ -64,6 +67,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-08-20', // verify
     author: 'NCA Communications',
     category: 'Cybersecurity',
+    featured: false,
   },
   {
     slug: 'africa-tech-festival-2025',
@@ -74,6 +78,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-08-10', // verify
     author: 'NCA Communications',
     category: 'News',
+    featured: false,
   },
 ];
 

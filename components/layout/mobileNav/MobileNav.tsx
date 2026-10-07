@@ -40,7 +40,7 @@ export default function MobileNav({ items }: { items: NavItem[] }) {
           <div
             aria-hidden
             onClick={closeAll}
-            className="animate-fade-in absolute inset-x-0 top-full h-dvh bg-slate-900/40"
+            className="animate-fade-in absolute inset-x-0 top-full h-dvh bg-slate-900/60"
           />
 
           <nav

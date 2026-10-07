@@ -3,6 +3,7 @@ import PageShell from '@/components/layout/PageShell';
 import NavLink from '@/components/layout/NavLink';
 import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
+import Accordion from '@/components/ui/Accordion';
 
 export const metadata: Metadata = {
   title: 'Mandate',
@@ -158,36 +159,28 @@ export default function MandatePage() {
         intro="How the Authority organises its work."
         inset
       >
-        <div className="space-y-3">
-          {pillars.map((p, i) => (
-            <details
-              key={p.title}
-              className="group open:bg-brand-50 rounded-lg border border-slate-200"
-              open={i === 0}
-            >
-              <summary className="text-brand-900 flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold [&::-webkit-details-marker]:hidden">
-                <span>
-                  <span className="text-brand-600 mr-2">{i + 1}.</span>
-                  {p.title}
-                </span>
-                <span
-                  aria-hidden
-                  className="text-xl transition-transform group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5">
+        <Accordion
+          defaultOpen="pillar-1"
+          items={pillars.map((p, i) => ({
+            id: `pillar-${i + 1}`,
+            title: (
+              <>
+                <span className="text-brand-600 mr-2">{i + 1}.</span>
+                {p.title}
+              </>
+            ),
+            content: (
+              <>
                 <p className="text-sm text-slate-600">{p.intro}</p>
                 <ul className="marker:text-brand-600 mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
                   {p.targets.map((t) => (
                     <li key={t}>{t}</li>
                   ))}
                 </ul>
-              </div>
-            </details>
-          ))}
-        </div>
+              </>
+            ),
+          }))}
+        />
       </Section>
     </PageShell>
   );

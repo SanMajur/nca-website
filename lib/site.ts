@@ -67,11 +67,6 @@ export const services: NavItem[] = [
     description: 'Certify telecom equipment for use in South Sudan.',
   },
   {
-    label: 'Consumer Protection',
-    href: '/services/consumers',
-    description: 'File complaints and access dispute resolution.',
-  },
-  {
     label: 'Universal Service Access Fund',
     href: 'https://usaf.gov.ss',
     external: true,

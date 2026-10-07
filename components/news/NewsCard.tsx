@@ -1,14 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { NewsItem } from '@/lib/content';
-
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    timeZone: 'UTC',
-  });
+import { formatDate } from '@/lib/format';
 
 export default function NewsCard({ item }: { item: NewsItem }) {
   return (

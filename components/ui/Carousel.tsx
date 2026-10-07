@@ -1,6 +1,13 @@
 'use client';
 
-import { Children, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  Children,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import { FaPause, FaPlay } from 'react-icons/fa6';
 import ChevronDown from '@/components/ui/ChevronDown';
 
@@ -16,15 +23,31 @@ const GAP_PX = 24; // matches gap-6
 const itemClass =
   'shrink-0 basis-full snap-start md:basis-[calc((100%_-_1.5rem)/2)] lg:basis-[calc((100%_-_3rem)/3)]';
 
+// Shared look for the round buttons (display is set per button, see below)
 const ctrl =
-  'grid h-10 w-10 place-items-center rounded-full border border-slate-300 text-brand-800 transition hover:bg-brand-50';
-const arrowOnly = 'hidden md:grid'; // arrows show from tablet width up
+  'place-items-center rounded-full border border-slate-300 text-brand-800 transition hover:bg-brand-50';
+const pauseBtn = `grid h-10 w-10 ${ctrl}`;
+const arrowBtn = `hidden h-10 w-10 md:grid ${ctrl}`; // arrows show from tablet width up
+
 // Size of one full set of cards: `content` is its width, `loop` includes the trailing gap
 function measure(el: HTMLElement, count: number) {
   const first = el.children[0] as HTMLElement;
   const last = el.children[count - 1] as HTMLElement;
   const content = last.offsetLeft + last.offsetWidth - first.offsetLeft;
   return { content, loop: content + GAP_PX, step: first.offsetWidth + GAP_PX };
+}
+
+// Reads the visitor's "reduce motion" setting and updates live if it changes
+function useReducedMotion() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      mq.addEventListener('change', onChange);
+      return () => mq.removeEventListener('change', onChange);
+    },
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    () => false, // server render: assume motion is allowed
+  );
 }
 
 export default function Carousel({
@@ -39,8 +62,11 @@ export default function Carousel({
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
 
+  const reduceMotion = useReducedMotion();
+  const [userPlaying, setUserPlaying] = useState<boolean | null>(null); // null = visitor hasn't chosen
+  const playing = userPlaying ?? !reduceMotion; // autoplay on, unless reduced motion is requested
+
   const [loops, setLoops] = useState(false); // true only when the cards overflow the screen
-  const [playing, setPlaying] = useState(true);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [inView, setInView] = useState(true);
@@ -51,19 +77,12 @@ export default function Carousel({
   useEffect(() => {
     const el = track.current;
     if (!el || count === 0) return;
-    const check = () =>
-      setLoops(count > 1 && measure(el, count).content > el.clientWidth + 4);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const ro = new ResizeObserver(() =>
+      setLoops(count > 1 && measure(el, count).content > el.clientWidth + 4),
+    );
+    ro.observe(el);
+    return () => ro.disconnect();
   }, [count]);
-
-  // Respect "reduce motion": no automatic sliding
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setPlaying(false);
-    }
-  }, []);
 
   // Only slide while the carousel is on screen
   useEffect(() => {
@@ -104,12 +123,12 @@ export default function Carousel({
         el.scrollTo({ left: el.scrollLeft + loop, behavior: 'instant' });
       }
 
-      const reduce = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-      ).matches;
-      el.scrollBy({ left: dir * step, behavior: reduce ? 'auto' : 'smooth' });
+      el.scrollBy({
+        left: dir * step,
+        behavior: reduceMotion ? 'auto' : 'smooth',
+      });
     },
-    [loops, count],
+    [loops, count, reduceMotion],
   );
 
   // Automatic sliding
@@ -150,8 +169,8 @@ export default function Carousel({
             aria-label={
               playing ? 'Pause automatic sliding' : 'Start automatic sliding'
             }
-            onClick={() => setPlaying((p) => !p)}
-            className={ctrl}
+            onClick={() => setUserPlaying(!playing)}
+            className={pauseBtn}
           >
             {playing ? (
               <FaPause aria-hidden className="h-3.5 w-3.5" />
@@ -163,7 +182,7 @@ export default function Carousel({
             type="button"
             aria-label="Previous"
             onClick={() => move(-1)}
-            className={` ${ctrl} ${arrowOnly}`}
+            className={arrowBtn}
           >
             <ChevronDown className="h-5 w-5 rotate-90" />
           </button>
@@ -171,7 +190,7 @@ export default function Carousel({
             type="button"
             aria-label="Next"
             onClick={() => move(1)}
-            className={` ${ctrl} ${arrowOnly}`}
+            className={arrowBtn}
           >
             <ChevronDown className="h-5 w-5 -rotate-90" />
           </button>

@@ -7,6 +7,7 @@ export type NewsItem = {
   datePublished: string; // ISO date, maps to date_published in the CMS
   author: string;
   category: string;
+  featured?: boolean;
 };
 
 const wix = (id: string) => `https://static.wixstatic.com/media/${id}`;
@@ -33,6 +34,7 @@ export const latestNews: NewsItem[] = [
     datePublished: '2026-09-24',
     author: 'NCA Communications',
     category: 'News',
+    featured: true,
   },
   {
     slug: '72nd-afralti-governing-council',

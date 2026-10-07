@@ -3,29 +3,29 @@ import PageShell from '@/components/layout/PageShell';
 import PersonCard from '@/components/ui/PersonCard';
 import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
-import { board } from '@/lib/data/people';
+import { advisors, board } from '@/lib/data/people';
 
 export const metadata: Metadata = {
-  title: 'Board of Directors',
+  title: 'Advisory Council',
   description:
-    'The Board sets the policy direction of the National Communication Authority and oversees its work.',
+    'The Advisory Council provides guidance and advice to the National Communication Authority.',
 };
 
-export default function BoardPage() {
-  const [chair, ...members] = board;
+export default function AdvisorsPage() {
+  const [chair, ...members] = advisors;
 
   return (
     <PageShell
-      title="Board of Directors"
-      description="The Board sets the NCA's policy direction, oversees its operations and checks that its objectives are met."
+      title="Advisory Council"
+      description="The Advisory Council provides guidance and advice to the National Communication Authority."
       crumbs={[
         { label: 'About', href: '/about-us' },
-        { label: 'Board of Directors' },
+        { label: 'Advisory Council' },
       ]}
       sideTitle="About the NCA"
       sideItems={aboutPages}
     >
-      <Section title="Board members" inset>
+      <Section title="Advisory Council members" inset>
         <ul className="grid gap-4 sm:grid-cols-2">
           <li className="sm:col-span-2">
             <PersonCard person={chair} featured />

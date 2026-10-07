@@ -25,6 +25,52 @@ const nextConfig: NextConfig = {
         destination: '/about-us',
         permanent: true,
       },
+      { source: '/mandate', destination: '/about-us/mandate', permanent: true },
+      {
+        source: '/board-of-directors',
+        destination: '/about-us/board',
+        permanent: true,
+      },
+      {
+        source: '/advisory-council',
+        destination: '/about-us/advisors',
+        permanent: true,
+      },
+      {
+        source: '/board-of-directors/:slug',
+        destination: '/about-us/board',
+        permanent: true,
+      },
+      {
+        source: '/advisory-council/:slug',
+        destination: '/about-us/advisors',
+        permanent: true,
+      },
+      {
+        source: '/leadership',
+        destination: '/about-us/executive',
+        permanent: true,
+      },
+      {
+        source: '/leadership/:slug',
+        destination: '/about-us/executive',
+        permanent: true,
+      },
+      {
+        source: '/executive-body',
+        destination: '/about-us/executive',
+        permanent: true,
+      },
+      {
+        source: '/all-directorates',
+        destination: '/about-us/directorates',
+        permanent: true,
+      },
+      {
+        source: '/directorates/:slug',
+        destination: '/about-us/directorates',
+        permanent: true,
+      },
     ];
   },
 };

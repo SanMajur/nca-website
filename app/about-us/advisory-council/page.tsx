@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
-import PersonCard from '@/components/ui/PersonCard';
+//import PersonCard from '@/components/ui/PersonCard';
 import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
 import { advisors } from '@/lib/data/people';
+import PeopleGrid from '@/components/ui/PeopleGrid';
 
 export const metadata: Metadata = {
   title: 'Advisory Council',
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdvisorsPage() {
-  const [chair, ...members] = advisors;
+  //const [chair, ...members] = advisors;
 
   return (
     <PageShell
@@ -26,16 +27,13 @@ export default function AdvisorsPage() {
       sideItems={aboutPages}
     >
       <Section title="Advisory Council members" inset>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          <li className="sm:col-span-2">
-            <PersonCard person={chair} featured />
-          </li>
-          {members.map((m) => (
-            <li key={m.name}>
-              <PersonCard person={m} />
-            </li>
-          ))}
-        </ul>
+        {advisors.length ? (
+          <PeopleGrid people={advisors} featuredFirst />
+        ) : (
+          <p className="text-slate-600">
+            The Advisory Council is currently being constituted.
+          </p>
+        )}
       </Section>
     </PageShell>
   );

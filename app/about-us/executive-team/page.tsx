@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
-import PersonCard from '@/components/ui/PersonCard';
+// import PersonCard from '@/components/ui/PersonCard';
 import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
 import { executive } from '@/lib/data/people';
+import PeopleGrid from '@/components/ui/PeopleGrid';
 
 export const metadata: Metadata = {
   title: 'Executive Body',
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function ExecutivePage() {
-  const [dg, ...directors] = executive;
+  //const [dg, ...directors] = executive;
 
   return (
     <PageShell
@@ -26,16 +27,7 @@ export default function ExecutivePage() {
       sideItems={aboutPages}
     >
       <Section title="Management team" inset>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          <li className="sm:col-span-2">
-            <PersonCard person={dg} featured />
-          </li>
-          {directors.map((d) => (
-            <li key={d.name}>
-              <PersonCard person={d} />
-            </li>
-          ))}
-        </ul>
+        <PeopleGrid people={executive} featuredFirst />
       </Section>
     </PageShell>
   );

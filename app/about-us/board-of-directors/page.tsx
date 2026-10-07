@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
-import PersonCard from '@/components/ui/PersonCard';
+//import PersonCard from '@/components/ui/PersonCard';
 import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
 import { board } from '@/lib/data/people';
+import PeopleGrid from '@/components/ui/PeopleGrid';
+//import { board } from '@/lib/data/people';
 
 export const metadata: Metadata = {
   title: 'Board of Directors',
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function BoardPage() {
-  const [chair, ...members] = board;
+  //const [chair, ...members] = board;
 
   return (
     <PageShell
@@ -26,16 +28,7 @@ export default function BoardPage() {
       sideItems={aboutPages}
     >
       <Section title="Board members" inset>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          <li className="sm:col-span-2">
-            <PersonCard person={chair} featured />
-          </li>
-          {members.map((m) => (
-            <li key={m.name}>
-              <PersonCard person={m} />
-            </li>
-          ))}
-        </ul>
+        <PeopleGrid people={board} featuredFirst />
       </Section>
     </PageShell>
   );

@@ -1,48 +1,36 @@
-import Image from 'next/image';
 import type { Person } from '@/lib/data/people';
+import Avatar from './Avatar';
 
-const TITLES = /^(hon\.?|eng\.?|gen\.?|dr\.?|prof\.?|mr\.?|mrs\.?|ms\.?)$/i;
-
-function initials(name: string) {
-  const parts = name.split(/\s+/).filter((p) => !TITLES.test(p));
-  const first = parts[0]?.[0] ?? '';
-  const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
-  return (first + last).toUpperCase();
-}
+type Props = {
+  person: Person;
+  featured?: boolean;
+  onSelect: (person: Person) => void;
+};
 
 export default function PersonCard({
   person,
   featured = false,
-}: {
-  person: Person;
-  featured?: boolean;
-}) {
+  onSelect,
+}: Props) {
   return (
-    <article
-      className={`flex items-center gap-4 rounded-lg border p-5 ${
-        featured ? 'border-brand-100 bg-brand-50' : 'border-slate-200'
+    <button
+      type="button"
+      aria-haspopup="dialog"
+      onClick={() => onSelect(person)}
+      className={`group hover:border-brand-600 flex w-full flex-col items-center gap-4 rounded-xl border p-6 text-left transition hover:shadow-md ${
+        featured ? 'border-brand-100 bg-brand-50' : 'border-slate-200 bg-white'
       }`}
     >
-      {person.photo ? (
-        <Image
-          src={person.photo}
-          alt=""
-          width={112}
-          height={112}
-          className="h-14 w-14 shrink-0 rounded-full object-cover"
-        />
-      ) : (
-        <div
-          aria-hidden
-          className="bg-brand-700 grid h-14 w-14 shrink-0 place-items-center rounded-full text-lg font-bold text-white"
-        >
-          {initials(person.name)}
-        </div>
-      )}
-      <div className="min-w-0">
-        <h3 className="text-brand-900 font-semibold">{person.name}</h3>
-        <p className="text-sm text-slate-600">{person.role}</p>
-      </div>
-    </article>
+      <Avatar name={person.name} photo={person.photo} />
+      <span className="mt-4 min-w-0 flex-1">
+        <span className="text-brand-900 group-hover:text-brand-700 block font-semibold">
+          {person.name}
+        </span>
+        <span className="mt-1 block text-sm text-slate-600">{person.role}</span>
+        <span className="text-brand-700 mt-1 block text-xs font-medium">
+          View profile →
+        </span>
+      </span>
+    </button>
   );
 }

@@ -71,6 +71,27 @@ const nextConfig: NextConfig = {
         destination: '/about-us/directorates',
         permanent: true,
       },
+      {
+        source: '/policies-and-regulations',
+        destination: '/regulations',
+        permanent: true,
+      },
+      { source: '/downloads', destination: '/regulations', permanent: true },
+      {
+        source: '/numbering-regulation',
+        destination: '/regulations/numbering',
+        permanent: true,
+      },
+      {
+        source: '/tarrifs-regulations',
+        destination: '/regulations/tariffs',
+        permanent: true,
+      },
+      {
+        source: '/short-codes',
+        destination: '/regulations/short-codes',
+        permanent: true,
+      },
     ];
   },
 };

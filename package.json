@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "fuse.js": "^7.5.0",
     "next": "16.3.8",
     "nextjs-toploader": "^3.9.17",
     "react": "19.2.8",

@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
-import PageShell from '@/components/layout/PageShell';
-//import PersonCard from '@/components/ui/PersonCard';
-import Section from '@/components/ui/Section';
-import { aboutPages } from '@/lib/sections';
+import PeoplePage from '@/components/PeoplePage';
 import { advisors } from '@/lib/data/people';
-import PeopleGrid from '@/components/ui/PeopleGrid';
 
 export const metadata: Metadata = {
   title: 'Advisory Council',
@@ -13,28 +9,14 @@ export const metadata: Metadata = {
 };
 
 export default function AdvisorsPage() {
-  //const [chair, ...members] = advisors;
-
   return (
-    <PageShell
+    <PeoplePage
       title="Advisory Council"
       description="The Advisory Council provides guidance and advice to the National Communication Authority."
-      crumbs={[
-        { label: 'About', href: '/about-us' },
-        { label: 'Advisory Council' },
-      ]}
+      sectionTitle="Advisory Council members"
+      people={advisors}
       sideTitle="About the NCA Advisory Council"
-      sideItems={aboutPages}
-    >
-      <Section title="Advisory Council members" inset>
-        {advisors.length ? (
-          <PeopleGrid people={advisors} />
-        ) : (
-          <p className="text-slate-600">
-            The Advisory Council is currently being constituted.
-          </p>
-        )}
-      </Section>
-    </PageShell>
+      emptyMessage="The Advisory Council is currently being constituted."
+    />
   );
 }

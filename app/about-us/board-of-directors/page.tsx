@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
-import PageShell from '@/components/layout/PageShell';
-//import PersonCard from '@/components/ui/PersonCard';
-import Section from '@/components/ui/Section';
-import { aboutPages } from '@/lib/sections';
+import PeoplePage from '@/components/PeoplePage';
 import { board } from '@/lib/data/people';
-import PeopleGrid from '@/components/ui/PeopleGrid';
 
 export const metadata: Metadata = {
   title: 'Board of Directors',
@@ -14,19 +10,12 @@ export const metadata: Metadata = {
 
 export default function BoardPage() {
   return (
-    <PageShell
+    <PeoplePage
       title="Board of Directors"
       description="The Board sets the NCA's policy direction, oversees its operations and checks that its objectives are met."
-      crumbs={[
-        { label: 'About', href: '/about-us' },
-        { label: 'Board of Directors' },
-      ]}
-      sideTitle="About the NCA"
-      sideItems={aboutPages}
-    >
-      <Section title="Board members" inset>
-        <PeopleGrid people={board} variant="board" />
-      </Section>
-    </PageShell>
+      sectionTitle="Board members"
+      people={board}
+      variant="board"
+    />
   );
 }

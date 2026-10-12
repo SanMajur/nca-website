@@ -40,6 +40,8 @@ export default function Header() {
           <a
             href={site.eservices}
             className="bg-brand-700 hover:bg-brand-800 rounded-md px-4 py-2 text-sm font-semibold text-white"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             eServices
           </a>

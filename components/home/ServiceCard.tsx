@@ -8,6 +8,8 @@ export default function ServiceCard({ service }: { service: Service }) {
     <Link
       href={service.href}
       className="hover:border-brand-600 block h-full rounded-lg border border-slate-200 p-6 transition hover:shadow-md"
+      target={service.external ? '_blank' : undefined}
+      rel={service.external ? 'noopener noreferrer' : undefined}
     >
       <h3 className="text-brand-900 font-semibold">{service.label}</h3>
       <p className="mt-2 text-sm text-slate-600">{service.description}</p>

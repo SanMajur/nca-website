@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import PeoplePage from '@/components/PeoplePage';
+import PeoplePage from '@/components/about/PeoplePage';
 import { executive } from '@/lib/data/people';
 
 export const metadata: Metadata = {

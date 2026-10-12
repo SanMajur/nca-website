@@ -129,5 +129,23 @@ export function getSearchEntries(): SearchEntry[] {
     ...topicEntries,
     ...documentEntries,
     ...peopleEntries,
+    page(
+      'Consumer Rights',
+      '/consumers',
+      'Your rights as a telecom user and how the NCA protects them.',
+      'consumers rights responsibilities protection fraud privacy billing compensation quality of service',
+    ),
+    page(
+      'File a Complaint',
+      '/consumers/complaints',
+      'How to complain about a telecommunications provider.',
+      'complaint complain problem provider operator dispute appeal report',
+    ),
+    page(
+      'FAQs',
+      '/consumers/faqs',
+      'Common questions about the National Communications Act and the NCA.',
+      'questions answers act licence funding usaf complaints appeals frequency',
+    ),
   ];
 }

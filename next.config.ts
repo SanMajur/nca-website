@@ -92,6 +92,22 @@ const nextConfig: NextConfig = {
         destination: '/regulations/short-codes',
         permanent: true,
       },
+      {
+        source: '/consumer-rights',
+        destination: '/consumers',
+        permanent: true,
+      },
+      {
+        source: '/about-consumer-rights',
+        destination: '/consumers',
+        permanent: true,
+      },
+      {
+        source: '/file-a-complaint',
+        destination: '/consumers/complaints',
+        permanent: true,
+      },
+      { source: '/faqs', destination: '/consumers/faqs', permanent: true },
     ];
   },
 };

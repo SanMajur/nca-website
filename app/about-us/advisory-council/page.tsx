@@ -28,7 +28,7 @@ export default function AdvisorsPage() {
     >
       <Section title="Advisory Council members" inset>
         {advisors.length ? (
-          <PeopleGrid people={advisors} featuredFirst />
+          <PeopleGrid people={advisors} />
         ) : (
           <p className="text-slate-600">
             The Advisory Council is currently being constituted.

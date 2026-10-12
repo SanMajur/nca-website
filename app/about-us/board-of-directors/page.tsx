@@ -5,7 +5,6 @@ import Section from '@/components/ui/Section';
 import { aboutPages } from '@/lib/sections';
 import { board } from '@/lib/data/people';
 import PeopleGrid from '@/components/ui/PeopleGrid';
-//import { board } from '@/lib/data/people';
 
 export const metadata: Metadata = {
   title: 'Board of Directors',
@@ -14,8 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function BoardPage() {
-  //const [chair, ...members] = board;
-
   return (
     <PageShell
       title="Board of Directors"
@@ -28,7 +25,7 @@ export default function BoardPage() {
       sideItems={aboutPages}
     >
       <Section title="Board members" inset>
-        <PeopleGrid people={board} featuredFirst />
+        <PeopleGrid people={board} variant="board" />
       </Section>
     </PageShell>
   );

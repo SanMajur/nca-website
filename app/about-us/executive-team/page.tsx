@@ -27,7 +27,7 @@ export default function ExecutivePage() {
       sideItems={aboutPages}
     >
       <Section title="Management team" inset>
-        <PeopleGrid people={executive} featuredFirst />
+        <PeopleGrid people={executive} variant="executive" />
       </Section>
     </PageShell>
   );

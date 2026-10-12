@@ -32,7 +32,7 @@ export default function Avatar({
         alt=""
         width={192}
         height={192}
-        className={`${cls} object-cover`}
+        className={`${cls} object-cover object-top`}
       />
     );
   }

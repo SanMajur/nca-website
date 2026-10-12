@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { nav, site } from '@/lib/site';
 import DesktopNav from './desktopNav/DesktopNav';
 import MobileNav from './mobileNav/MobileNav';
+import SearchButton from '../search/SearchButton';
 
 export default function Header() {
   return (
@@ -35,6 +36,7 @@ export default function Header() {
         <DesktopNav items={nav} />
 
         <div className="flex items-center gap-2">
+          <SearchButton />
           <a
             href={site.eservices}
             className="bg-brand-700 hover:bg-brand-800 rounded-md px-4 py-2 text-sm font-semibold text-white"

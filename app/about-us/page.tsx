@@ -77,6 +77,7 @@ const aims = [
 ];
 
 const directorates = [
+  'Office of the Director General',
   'Corporate Affairs',
   'Regulation and Enforcement',
   'Spectrum Management',
@@ -221,18 +222,23 @@ export default function AboutPage() {
           inset
         >
           <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            {directorates.map((d) => (
-              <li
-                key={d}
-                className="bg-brand-50 text-brand-900 rounded-md px-4 py-3 text-sm font-medium"
-              >
-                {d}
-              </li>
-            ))}
+            {directorates.map((name) => {
+              const slug = name.toLowerCase().replaceAll(' ', '-');
+
+              return (
+                <Link
+                  key={name}
+                  href={`/about-us/directorates/${slug}`}
+                  className="bg-brand-50 text-brand-900 hover:bg-brand-100 hover:text-brand-900 rounded-md px-4 py-3 text-sm font-medium"
+                >
+                  {name}
+                </Link>
+              );
+            })}
           </ul>
           <p className="mt-5 text-sm text-slate-600">
             <Link
-              href="/about/directorates"
+              href="/about-us/directorates"
               className="text-brand-700 font-semibold hover:underline"
             >
               See what each directorate does →

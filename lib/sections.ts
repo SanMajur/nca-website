@@ -8,3 +8,8 @@ export const aboutPages: SideNavItem[] = [
   { label: 'Executive Team', href: '/about-us/executive-team' },
   { label: 'Directorates', href: '/about-us/directorates' },
 ];
+export const consumerPages: SideNavItem[] = [
+  { label: 'Consumer Rights', href: '/consumers' },
+  { label: 'File a Complaint', href: '/consumers/complaints' },
+  { label: 'FAQs', href: '/consumers/faqs' },
+];
